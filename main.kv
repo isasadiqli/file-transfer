@@ -1,0 +1,49 @@
+MainScreenManager:
+    MainScreen:
+    ServerScreen:
+    ClientScreen:
+
+
+<MainScreen>:
+    name: 'main_screen'
+
+    BoxLayout:
+        id: ewf
+        orientation: 'vertical'
+        size: root.width, root.height
+
+
+        Label:
+            id: ef
+            text: 'FILE TRANSFER APP'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size: root.width, root.height
+
+            Button:
+                id: send_a_file
+                text: 'Send a file'
+                font_size: 32
+                on_press:
+                    app.root.current = 'client_screen'
+                    root.manager.transition.direction = 'left'
+
+            Button:
+                text: 'Receive a file'
+                font_size: 32
+                on_press:
+                    app.root.current = 'server_screen'
+                    root.manager.transition.direction = 'left'
+
+
+
+<ServerScreen>:
+    name:'server_screen'
+
+
+
+
+
+<ClientScreen>:
+    name:'client_screen'

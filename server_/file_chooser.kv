@@ -1,0 +1,17 @@
+#:import platform kivy.utils.platform
+
+<FileChooserWidget>:
+    cols:1
+    id:file_chooser_widget
+
+    Label:
+        id: label
+        text: ""
+        size_hint_y: 0.1
+        text_size: self.size
+
+    FileChooserIconView:
+        id: file_chooser
+        rootpath: '/storage/emulated/0/' if platform == 'android' else '/'
+        on_selection: label.text = self.selection and self.selection[0] or ''
+        dirselect: False if platform == 'android' else True
